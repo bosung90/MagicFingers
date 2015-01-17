@@ -184,20 +184,20 @@ public class HandsViewer : MonoBehaviour
 			}
 		}
 		
-		for (int i = 0; i < MaxHands; i++)
-			for (int j = 0; j < MaxJoints; j++) {		
-			
-				if (j != 21 && j != 0 && j != 1 && j != 5 && j != 9 && j != 13 && j != 17)
-					UpdateBoneTransform (myBones [i] [j], myJoints [i] [j], myJoints [i] [j + 1]);
-
-				UpdateBoneTransform (myBones [i] [21], myJoints [i] [0], myJoints [i] [2]);
-				UpdateBoneTransform (myBones [i] [17], myJoints [i] [0], myJoints [i] [18]);
-
-				UpdateBoneTransform (myBones [i] [5], myJoints [i] [14], myJoints [i] [18]);
-				UpdateBoneTransform (myBones [i] [9], myJoints [i] [10], myJoints [i] [14]);
-				UpdateBoneTransform (myBones [i] [13], myJoints [i] [6], myJoints [i] [10]);
-				UpdateBoneTransform (myBones [i] [0], myJoints [i] [2], myJoints [i] [6]);
-			}
+//
+//			for (int j = 0; j < MaxJoints; j++) {		
+//			
+//				if (j != 21 && j != 0 && j != 1 && j != 5 && j != 9 && j != 13 && j != 17)
+//					UpdateBoneTransform (myBones [i] [j], myJoints [i] [j], myJoints [i] [j + 1]);
+//
+//				UpdateBoneTransform (myBones [i] [21], myJoints [i] [0], myJoints [i] [2]);
+//				UpdateBoneTransform (myBones [i] [17], myJoints [i] [0], myJoints [i] [18]);
+//
+//				UpdateBoneTransform (myBones [i] [5], myJoints [i] [14], myJoints [i] [18]);
+//				UpdateBoneTransform (myBones [i] [9], myJoints [i] [10], myJoints [i] [14]);
+//				UpdateBoneTransform (myBones [i] [13], myJoints [i] [6], myJoints [i] [10]);
+//				UpdateBoneTransform (myBones [i] [0], myJoints [i] [2], myJoints [i] [6]);
+//			}
 	}
 	
 	//Update Bones
@@ -297,7 +297,8 @@ public class HandsViewer : MonoBehaviour
 			
 				if (j == 1)
 					myJoints [i] [j] = (GameObject)Instantiate (PalmCenterPrefab, Vector3.zero, Quaternion.identity);
-				else if (j == 21 || j == 17 || j == 13 || j == 9 || j == 5)
+				else 
+				if (j == 13 || j == 9 || j == 5)
 					myJoints [i] [j] = (GameObject)Instantiate (TipPrefab, Vector3.zero, Quaternion.identity);
 				else
 					myJoints [i] [j] = (GameObject)Instantiate (JointPrefab, Vector3.zero, Quaternion.identity);
